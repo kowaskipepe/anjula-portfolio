@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  /* HNB Life — primary deep blue */
+  --color-primary: #003366;
+  --color-primary-hover: #002244;
+  --color-primary-light: #004080;
+
+  /* Secondary light blues */
+  --color-secondary: #e8f2fc;
+  --color-secondary-hover: #d6e8f7;
+  --color-secondary-muted: #b8d4f0;
+
+  /* Accent yellow — buttons hover & highlights */
+  --color-accent: #f5c518;
+  --color-accent-hover: #e0b000;
+  --color-accent-foreground: #1a1a1a;
+
+  /* Neutrals */
+  --color-surface: #f5f7fa;
+  --color-muted: #4a5568;
+  --color-foreground: #1a1a1a;
+  --color-border: #e2e8f0;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply font-sans text-foreground bg-white antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5
+           text-sm font-semibold transition-colors duration-200
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
+           bg-primary text-white shadow-sm
+           hover:bg-accent hover:text-accent-foreground
+           focus-visible:ring-primary;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5
+           text-sm font-semibold transition-colors duration-200
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
+           border border-primary bg-white text-primary
+           hover:bg-accent hover:border-accent hover:text-accent-foreground
+           focus-visible:ring-primary;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5
+           text-sm font-semibold transition-colors duration-200
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
+           text-muted hover:bg-secondary hover:text-primary
+           focus-visible:ring-primary;
+  }
+
+  .card {
+    @apply rounded-2xl border border-border bg-white p-6
+           shadow-sm transition-shadow duration-200 hover:shadow-md;
+  }
+
+  .card-icon {
+    @apply inline-flex rounded-xl bg-secondary p-3;
+  }
+
+  .heading-section {
+    @apply text-3xl font-semibold tracking-tight text-primary md:text-4xl;
+  }
+
+  .input-field {
+    @apply w-full rounded-lg border border-border px-4 py-2.5
+           text-foreground placeholder:text-muted/60
+           focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20;
+  }
+}
+
+@layer utilities {
+  .fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
