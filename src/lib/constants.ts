@@ -5,6 +5,9 @@ export const SITE = {
   phone: '0773737965',
 } as const
 
+export const FORMSPREE_FORM_ID =
+  import.meta.env.VITE_FORMSPREE_FORM_ID || 'xaqgonkd'
+
 export const SOCIAL = {
   facebook:
     'https://www.facebook.com/ANJULA.thilakarathne?mibextid=wwXIfr&mibextid=wwXIfr',

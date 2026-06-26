@@ -1,7 +1,7 @@
 import { Mail, Phone } from 'lucide-react'
 import { useForm, ValidationError } from '@formspree/react'
 import { FacebookIcon, LinkedInIcon } from '../ui/SocialIcons'
-import { SECTION_IDS, SITE, SOCIAL } from '../../lib/constants'
+import { FORMSPREE_FORM_ID, SECTION_IDS, SITE, SOCIAL } from '../../lib/constants'
 import { Button } from '../ui/Button'
 import { Container } from '../ui/Container'
 import { FadeIn } from '../ui/FadeIn'
@@ -26,9 +26,7 @@ const inputClasses =
   'w-full rounded-xl border border-border bg-white px-4 py-2.5 text-sm text-primary placeholder:text-muted/70 transition-colors duration-200 focus-visible:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary'
 
 export function Contact() {
-  const [state, handleSubmit, reset] = useForm(
-    import.meta.env.VITE_FORMSPREE_FORM_ID,
-  )
+  const [state, handleSubmit, reset] = useForm(FORMSPREE_FORM_ID)
 
   return (
     <Section id={SECTION_IDS.contact} alternate>
