@@ -1,4 +1,4 @@
-# ShieldPort Portfolio
+# Anjula Portfolio
 
 A modern personal portfolio site built with React, Vite, and Tailwind CSS. Clean SaaS-style UI for a financial protection advisor.
 
