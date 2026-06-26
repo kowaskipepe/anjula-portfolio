@@ -1,6 +1,8 @@
 import { Mail, Phone } from 'lucide-react'
+import { useForm, ValidationError } from '@formspree/react'
 import { FacebookIcon, LinkedInIcon } from '../ui/SocialIcons'
 import { SECTION_IDS, SITE, SOCIAL } from '../../lib/constants'
+import { Button } from '../ui/Button'
 import { Container } from '../ui/Container'
 import { FadeIn } from '../ui/FadeIn'
 import { Section } from '../layout/Section'
@@ -20,7 +22,14 @@ const socialLinks = [
   },
 ] as const
 
+const inputClasses =
+  'w-full rounded-xl border border-border bg-white px-4 py-2.5 text-sm text-primary placeholder:text-muted/70 transition-colors duration-200 focus-visible:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary'
+
 export function Contact() {
+  const [state, handleSubmit, reset] = useForm(
+    import.meta.env.VITE_FORMSPREE_FORM_ID,
+  )
+
   return (
     <Section id={SECTION_IDS.contact} alternate>
       <Container>
@@ -83,6 +92,128 @@ export function Contact() {
                   </a>
                 </li>
               </ul>
+            </div>
+
+            <div>
+              <h3 className="text-center text-sm font-semibold uppercase tracking-wider text-primary md:text-left">
+                Send a message
+              </h3>
+
+              {state.succeeded ? (
+                <div className="mt-4 space-y-4 rounded-xl border border-border bg-white p-4 text-center md:text-left">
+                  <p className="text-sm font-medium text-primary">
+                    Thank you! Your message has been sent. I&apos;ll be in touch
+                    with you soon.
+                  </p>
+                  <div className="flex justify-center md:justify-start">
+                    <Button type="button" variant="outline" onClick={reset}>
+                      Send another message
+                    </Button>
+                  </div>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="mt-4 grid gap-4" noValidate>
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div className="flex flex-col gap-1.5">
+                      <label
+                        htmlFor="name"
+                        className="text-sm font-medium text-primary"
+                      >
+                        Name
+                      </label>
+                      <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        autoComplete="name"
+                        required
+                        placeholder="Your full name"
+                        className={inputClasses}
+                      />
+                      <ValidationError
+                        prefix="Name"
+                        field="name"
+                        errors={state.errors}
+                        className="text-xs text-red-600"
+                      />
+                    </div>
+                    <div className="flex flex-col gap-1.5">
+                      <label
+                        htmlFor="email"
+                        className="text-sm font-medium text-primary"
+                      >
+                        Email
+                      </label>
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        autoComplete="email"
+                        required
+                        placeholder="you@example.com"
+                        className={inputClasses}
+                      />
+                      <ValidationError
+                        prefix="Email"
+                        field="email"
+                        errors={state.errors}
+                        className="text-xs text-red-600"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-1.5">
+                    <label
+                      htmlFor="phone"
+                      className="text-sm font-medium text-primary"
+                    >
+                      Phone number
+                    </label>
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      autoComplete="tel"
+                      placeholder="Your contact number"
+                      className={inputClasses}
+                    />
+                    <ValidationError
+                      prefix="Phone"
+                      field="phone"
+                      errors={state.errors}
+                      className="text-xs text-red-600"
+                    />
+                  </div>
+
+                  <div className="flex flex-col gap-1.5">
+                    <label
+                      htmlFor="message"
+                      className="text-sm font-medium text-primary"
+                    >
+                      Additional comments
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={4}
+                      placeholder="How can I help you?"
+                      className={`${inputClasses} resize-y`}
+                    />
+                    <ValidationError
+                      prefix="Message"
+                      field="message"
+                      errors={state.errors}
+                      className="text-xs text-red-600"
+                    />
+                  </div>
+
+                  <div className="flex justify-center md:justify-start">
+                    <Button type="submit" disabled={state.submitting}>
+                      {state.submitting ? 'Sending…' : 'Send message'}
+                    </Button>
+                  </div>
+                </form>
+              )}
             </div>
 
             <div className="text-center md:text-left">
