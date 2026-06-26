@@ -21,7 +21,7 @@ export function Hero() {
           <div className="text-center lg:text-left">
             <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-white px-4 py-1.5 text-sm font-medium text-muted">
               <ShieldCheck className="h-4 w-4 text-primary" aria-hidden="true" />
-              Senior Insurance and Financial  Planer @ HNB Assurance PLC
+              Senior Insurance and Financial  Planer @ HNB Life PLC
             </p>
             <h1 className="text-4xl font-semibold tracking-tight text-primary sm:text-5xl lg:text-6xl lg:leading-tight">
               Protect what matters most with{' '}
@@ -50,7 +50,7 @@ export function Hero() {
               <img
                 src={heroPortrait}
                 alt="Professional financial protection advisor"
-                className="relative w-full rounded-2xl object-cover shadow-xl aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4] lg:max-h-[560px]"
+                className="relative h-auto w-full rounded-2xl object-contain shadow-xl lg:max-h-[560px] lg:w-auto"
               />
             </div>
           </div>

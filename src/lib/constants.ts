@@ -1,6 +1,6 @@
 export const SITE = {
   name: 'Anjula Thilakarathne',
-  tagline: 'Financial Protection Advisor',
+  tagline: 'Platinum Financial Planer',
   email: 'anjula.hnba@gmail.com',
   phone: '0773737965',
 } as const

@@ -10,9 +10,9 @@ export interface Milestone {
 }
 
 export const aboutParagraphs: string[] = [
-  'With a solid foundation built on over 12 years of service at Hatton National Bank and a successful career spanning over 10 years with HNB Assurance, I stand as a leading figure in Sri Lanka\u2019s insurance industry.',
+  'With a solid foundation built on over 12 years of service at Hatton National Bank and a successful career spanning over 11 years with HNB Assurance, I stand as a leading figure in Sri Lanka\u2019s insurance industry.',
   'I have been a proud member of the Premier Association of Financial Professionals (MDRT USA) since 2021, achieving international recognition for consistent excellence in client service and performance. I reached the prestigious Court of the Table (COT) level in 2023, 2024 and 2025 \u2014 a testament to my dedication, ethical practice, and elite performance in the insurance and financial planning sector.',
-  'Since 2015, I have been recognized annually as a National Award Winner by HNB Assurance, showcasing my unwavering commitment to quality and client satisfaction. In 2024, I further elevated my professional standing by winning the coveted Platinum Quality Award.',
+  'Since 2015, I have been recognized annually as a National Award Winner by HNB Life, showcasing my unwavering commitment to quality and client satisfaction. In 2024, I further elevated my professional standing by winning the coveted Platinum Quality Award.',
   'In 2025, I was honored to be appointed as the MDRT Zonal Chair, a leadership role entrusted to individuals who embody professionalism, mentorship, and industry leadership.',
   'Whether serving clients or mentoring fellow professionals, I continue to shape the future of financial services in Sri Lanka with passion, precision, and purpose.',
 ]
@@ -49,7 +49,7 @@ export const milestones: Milestone[] = [
 
 export const aboutStats = [
   { value: '12+', label: 'Years at Hatton National Bank' },
-  { value: '10+', label: 'Years with HNB Assurance' },
+  { value: '11+', label: 'Years with HNB Life' },
   { value: '2015', label: 'National Award Winner since' },
   { value: '2021', label: 'MDRT member since' },
 ]
